@@ -14,16 +14,10 @@
                <td>{{produit.nomProduit}}</td>
                <td>{{produit.prixProduit}}</td>
                <td>{{produit.dateCreation | date:'dd/MM/yyyy'}}</td>
+               <td><a class="btn btn-danger" (click)="supprimerProduit(produit)">Supprimer</a></td>
              </tr>                                    
           </tbody>
-          @if(last)
-          {  <h1>Nombre : {{nbr}}</h1>}
-         }   
-         
-         @empty {
-          <h1>Aucun produit trouvé !</h1>
-         } 
-
+         }
     </table>
     </div>
   </div>

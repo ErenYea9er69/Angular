@@ -5,16 +5,25 @@ import { ProduitService } from '../services/produit';
 
 @Component({
   selector: 'app-produits',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './produits.html',
 })
-export class Produits implements OnInit {
-  produits? : Produit[];// Array of Produit objects
-  private produitService = new ProduitService ();
+export class Produits  {
+  produits? : Produit[]; // Array of Produit objects
 
 
-constructor( ) {
+constructor(  private produitService : ProduitService) {
 
+  this.produits = this.produitService.listeProduits();
+
+  }
+  supprimerProduit(prod: Produit){
+
+    //console.log(prod);
+    let conf = confirm("Etes-vous sûr ?");
+    if (conf)
+    this.produitService.supprimerProduit(prod);
   }
 
   ngOnInit(): void {

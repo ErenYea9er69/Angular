@@ -11,17 +11,19 @@ import { ProduitService } from '../services/produit';
 })
 export class AddProduitComponent {
 
-  newProduit! :Produit;
+  newProduit: Produit = new Produit();
 
-  message! : string;
+  message: string = '';
 
-  constructor(private produitService: ProduitService ) {}
+  constructor(private produitService: ProduitService) {}
 
-  addProduit(){
-   // console.log(this.newProduit);
-   this.produitService.ajouterProduit(this.newProduit);
-   this.message = "Produit "+this.newProduit.nomProduit +" ajouté avec succès !"
-  }
+  addProduit() {
+    if (this.newProduit.idProduit && this.newProduit.nomProduit && this.newProduit.prixProduit) {
+      this.produitService.ajouterProduit(this.newProduit);
+      this.message = "Produit " + this.newProduit.nomProduit + " ajouté avec succès !";
+      
+      // Clear the form
+      this.newProduit = new Produit();
+      
 
-
-}
+}}}
