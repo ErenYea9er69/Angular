@@ -4,7 +4,9 @@ import { Produit } from '../model/produit.model';
   providedIn: 'root'
 })
 export class ProduitService {
-  produits: Produit[]; //un tableau de Produit
+  produits: Produit[]; 
+  produit! : Produit;
+//un tableau de Produit
   constructor() {
     this.produits = [
       {
@@ -37,6 +39,11 @@ if(prod.idProduit === cur.idProduit) {
 this.produits.splice(index, 1);
 }
 }); */
+
 }
 
+consulterProduit(id:number): Produit{
+this.produit = this.produits.find(p => p.idProduit == id)!;
+return this.produit;
+}
 }
