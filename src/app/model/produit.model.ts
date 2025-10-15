@@ -4,3 +4,4 @@ export class Produit {
   prixProduit?: number;
   dateCreation?: Date;
 }
+
