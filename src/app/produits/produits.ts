@@ -11,12 +11,12 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './produits.html',
 })
 export class Produits  {
-  produits? : Produit[]; // Array of Produit objects
+  produits? : Produit[];
 
 
 constructor(  private produitService : ProduitService) {
 
-  this.produits = this.produitService.listeProduits();
+  // this.produits = this.produitService.listeProduits();
 
   }
   supprimerProduit(prod: Produit){
@@ -28,5 +28,9 @@ constructor(  private produitService : ProduitService) {
   }
 
   ngOnInit(): void {
-  } 
+      this.produitService.listeProduit().subscribe(prods => {
+      // console.log(prods);
+      this.produits = prods;
+      });
+}
 }
