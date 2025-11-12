@@ -27,41 +27,15 @@ export class ProduitService {
           return this.http.post<Produit>(this.apiURL, prod, httpOptions);
     }
 
-    
-  supprimerProduit(prod: Produit) {
-    //supprimer le produit prod du tableau produits
-    const index = this.produits.indexOf(prod, 0);
-    if (index > -1) {
-      this.produits.splice(index, 1);
-    }
-    //ou Bien
-    /* this.produits.forEach((cur, index) => {
-if(prod.idProduit === cur.idProduit) {
-this.produits.splice(index, 1);
+
+ supprimerProduit(id : number) {
+      const url = `${this.apiURL}/${id}`;
+      return this.http.delete(url, httpOptions);
 }
-}); */
+    
   }
-
-  consulterProduit(id: number): Produit {
-    this.produit = this.produits.find((p) => p.idProduit == id)!;
-    return this.produit;
-  }
-  updateProduit(prod: Produit) {
-    const index = this.produits.indexOf(prod, 0);
-    if (index > -1) {
-      this.produits.splice(index, 1);
-      this.produits.splice(index, 0, prod);
-    }
-  }
-
-  // listeCategories(): Categorie[] {
-  //   return this.categories;
-  // }
-  // consulterCategorie(id: number): Categorie {
-  //   return this.categories.find((cat) => cat.idCat == id)!;
-  // }
 
 
 
   
-}
+

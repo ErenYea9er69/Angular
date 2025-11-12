@@ -19,18 +19,29 @@ constructor(  private produitService : ProduitService) {
   // this.produits = this.produitService.listeProduits();
 
   }
-  supprimerProduit(prod: Produit){
 
-    //console.log(prod);
-    let conf = confirm("Etes-vous sûr ?");
-    if (conf)
-    this.produitService.supprimerProduit(prod);
-  }
+
 
   ngOnInit(): void {
-      this.produitService.listeProduit().subscribe(prods => {
-      // console.log(prods);
-      this.produits = prods;
-      });
+      this.chargerProduits();
+
 }
+
+      chargerProduits(){
+            this.produitService.listeProduit().subscribe(prods => {
+            console.log(prods);
+            this.produits = prods;
+            });
+      }
+      supprimerProduit(p: Produit)
+      {
+              let conf = confirm("Etes-vous sûr ?");
+              if (conf)
+              this.produitService.supprimerProduit(p.idProduit).subscribe(() => {
+              console.log("produit supprimé");
+              this.chargerProduits();
+              });
+      } 
+
+
 }
