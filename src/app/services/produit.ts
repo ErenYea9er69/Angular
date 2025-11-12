@@ -32,6 +32,16 @@ export class ProduitService {
       const url = `${this.apiURL}/${id}`;
       return this.http.delete(url, httpOptions);
 }
+
+consulterProduit(id: number): Observable<Produit> {
+const url = `${this.apiURL}/${id}`;
+return this.http.get<Produit>(url);
+}
+
+updateProduit(prod :Produit) : Observable<Produit>
+{
+return this.http.put<Produit>(this.apiURL, prod, httpOptions);
+}
     
   }
 
