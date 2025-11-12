@@ -11,12 +11,10 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './produits.html',
 })
 export class Produits implements OnInit {
-  produits? : Produit[];
+  produits: Produit[] = [];
 
 
-constructor(private produitService : ProduitService) {
-  this.chargerProduits();
-}
+constructor(private produitService : ProduitService) {}
 
 
 

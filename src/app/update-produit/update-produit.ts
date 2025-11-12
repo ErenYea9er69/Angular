@@ -17,7 +17,7 @@ export class UpdateProduit implements OnInit {
   currentProduit = new Produit();
   categories! : Categorie[];
   updatedCatId! : number;
-  dateValue!: string;
+  dateValue: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
     private router :Router,
