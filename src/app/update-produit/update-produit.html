@@ -17,8 +17,7 @@
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Date création</label>
-            <input type="date" [ngModel]="currentProduit.dateCreation | date: 'yyyy-MM-dd'"
-                (ngModelChange)=" currentProduit.dateCreation= $event" name="dateCreation" class="form-control">
+            <input type="date" [(ngModel)]="dateValue" name="dateCreation" class="form-control">
         </div>
         <!-- <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedCatId">
             @for(cat of categories; track cat.idCat)
