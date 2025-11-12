@@ -23,7 +23,7 @@ export class UpdateProduit implements OnInit {
      private produitService: ProduitService) {}
   ngOnInit() {
     // console.log(this.route.snapshot.params.id);
-    this.categories = this.produitService.listeCategories();
+    // this.categories = this.produitService.listeCategories();
 
     this.currentProduit = this.produitService.consulterProduit(
       this.activatedRoute.snapshot.params['id']);
@@ -33,7 +33,7 @@ export class UpdateProduit implements OnInit {
   }
 updateProduit()
 { //console.log(this.currentProduit);
-  this.currentProduit.categorie=this.produitService.consulterCategorie(this.updatedCatId);
+  // this.currentProduit.categorie=this.produitService.consulterCategorie(this.updatedCatId);
 
 this.produitService.updateProduit(this.currentProduit);
 this.router.navigate(['produits']);

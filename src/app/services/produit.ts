@@ -11,10 +11,10 @@ export class ProduitService {
   categories!: Categorie[];
   //un tableau de Produit
   constructor() {
-    this.categories = [
-      { idCat: 1, nomCat: 'PC' },
-      { idCat: 2, nomCat: 'Imprimante' },
-    ];
+    // this.categories = [
+    //   { idCat: 1, nomCat: 'PC' },
+    //   { idCat: 2, nomCat: 'Imprimante' },
+    // ];
 
     this.produits = [
       {
@@ -72,12 +72,12 @@ this.produits.splice(index, 1);
     }
   }
 
-  listeCategories(): Categorie[] {
-    return this.categories;
-  }
-  consulterCategorie(id: number): Categorie {
-    return this.categories.find((cat) => cat.idCat == id)!;
-  }
+  // listeCategories(): Categorie[] {
+  //   return this.categories;
+  // }
+  // consulterCategorie(id: number): Categorie {
+  //   return this.categories.find((cat) => cat.idCat == id)!;
+  // }
 
 
 

@@ -21,12 +21,12 @@ export class AddProduitComponent implements OnInit {
   constructor(private produitService: ProduitService, private router: Router ) {}
 
   ngOnInit(): void {
-    this.categories = this.produitService.listeCategories();
+    // this.categories = this.produitService.listeCategories();
   }
 
   addProduit() {
 
-    this.newCategorie = this.produitService.consulterCategorie(this.newIdCat);
+    // this.newCategorie = this.produitService.consulterCategorie(this.newIdCat);
     this.newProduit.categorie = this.newCategorie;
     if (this.newProduit.idProduit && this.newProduit.nomProduit && this.newProduit.prixProduit) {
       this.produitService.ajouterProduit(this.newProduit);
