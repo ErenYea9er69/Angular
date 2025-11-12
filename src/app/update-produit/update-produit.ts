@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Produit } from '../model/produit.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService } from '../services/produit';
@@ -21,7 +21,8 @@ export class UpdateProduit implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private router :Router,
-     private produitService: ProduitService) {}
+     private produitService: ProduitService,
+     private cdr: ChangeDetectorRef) {}
      
   ngOnInit() {
     this.produitService.consulterProduit(this.activatedRoute.snapshot.params['id']).
@@ -31,6 +32,7 @@ export class UpdateProduit implements OnInit {
         const date = new Date(this.currentProduit.dateCreation);
         this.dateValue = date.toISOString().split('T')[0];
       }
+      this.cdr.detectChanges();
     });
   }
 
