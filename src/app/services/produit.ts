@@ -23,9 +23,11 @@ export class ProduitService {
       listeProduit(): Observable<Produit[]>{
           return this.http.get<Produit[]>(this.apiURL);
       }
-  ajouterProduit(prod: Produit) {
-    this.produits.push(prod);
-  }
+      ajouterProduit( prod: Produit):Observable<Produit>{
+          return this.http.post<Produit>(this.apiURL, prod, httpOptions);
+    }
+
+    
   supprimerProduit(prod: Produit) {
     //supprimer le produit prod du tableau produits
     const index = this.produits.indexOf(prod, 0);
